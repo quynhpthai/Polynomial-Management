@@ -5,7 +5,7 @@ class PolyManager {
         fun run() {
             while (true) {
                 println("Enter a command (INSERT, DELETE, SEARCH, or QUIT):")
-                val userInput = readLine() ?: break
+                val userInput = readlnOrNull() ?: break
 
                 if (userInput.equals("QUIT", ignoreCase = true)) {
                     println("Exiting the program")

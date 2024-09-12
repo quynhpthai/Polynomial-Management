@@ -3,22 +3,23 @@ package edu.tcu.quynhpthai.polynomialmanager
 class PolyList {
     private val polynomials = mutableListOf<Polynomial>()
     fun insertPoly(name: String, terms: List<Term>): String {
-        return if (polynomials.any { it.name == name }) {
-            "POLYNOMIAL $name ALREADY INSERTED"
-        } else {
-            val polynomial = Polynomial(name)
+        if(polynomials.any {it.name==name}){
+            return "POLYNOMIAL $name ALREADY INSERTED"
+        }else{
+            val polynomial=Polynomial(name)
             polynomial.terms.addAll(terms)
             polynomials.add(polynomial)
-            "$name = $polynomial"
+            return "$name =$polynomial"
         }
+
     }
         fun deletePolynomial(name: String): String {
             val poly=polynomials.find {it.name == name}
-            return if (poly!= null){
+            if (poly!= null){
                 polynomials.remove(poly)
-                "POLYNOMIAL $name SUCCESSFULLY DELETED"
+                return "POLYNOMIAL $name SUCCESSFULLY DELETED"
             } else{
-                "POLYNOMIAL $name DOES NOT EXIST"
+                return "POLYNOMIAL $name DOES NOT EXIST"
             }
         }
         fun searchPolynomial(name: String): String {

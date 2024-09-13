@@ -66,7 +66,8 @@ class Polynomial(val name: String){
 
 
         }
-        return result.toString()
+        result.insert(0, "$name =")
+        return result.toString().trimStart()
 
     }
 }

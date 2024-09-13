@@ -1,22 +1,20 @@
 package edu.tcu.quynhpthai.polynomialmanager
 class PolyManager {
-        // Method to run the program logic
         private  val polyList=PolyList()
         fun run() {
+            println("Enter Command: INSERT, DELETE, SEARCH, QUIT")
             while (true) {
-                println("Enter a command (INSERT, DELETE, SEARCH, or QUIT):")
+                print("Polynomial> ")
                 val userInput = readlnOrNull() ?: break
 
                 if (userInput.equals("QUIT", ignoreCase = true)) {
-                    println("Exiting the program")
+                    println("Exiting    the program")
                     break
                 }
-
                 val commandParts = userInput.split(" ")
                 if(commandParts.isEmpty()) println("Invalid command")
                 val command = commandParts[0].uppercase()
                 var result: String
-
                 when (command) {
                     "INSERT" -> {
                         if (commandParts.size < 3) {
@@ -28,7 +26,6 @@ class PolyManager {
                                 Term(termParts[0], termParts[1],termParts[2], termParts[3])
                             }
                             result=polyList.insertPoly(name,term)
-//                           println("Inserting polynomial $name with term $term")
                             println(result)
 
                         }
